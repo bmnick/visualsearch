@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <title>Visual Search Trial</title>
+    
+    <link rel="stylesheet" href="css/trials.css" type="text/css" media="screen"charset="utf-8" />
+  </head>
+  <body>
+    <div id="new-subject-view">
+      <input type="text" id="new-subject" placeholder="DCE" />
+      <label>
+        <input type="checkbox" id="handedness-check" checked="true" />
+        Right Handed?
+      </label>
+    </div>
+    <div id="view-output" style="display: none">
+      <h1>Press dominant hand key for present, off hand key for absent</h1>
+      <div id="trial"></div>
+    </div>
+    
+    <script type="text/template" id="trial-template">
+      <div id="trial-1" class="stimulus"></div>
+      <div id="trial-2" class="stimulus"></div>
+      <div id="trial-3" class="stimulus"></div>
+      <div id="trial-4" class="stimulus"></div>
+      <div id="trial-5" class="stimulus"></div>
+      <div id="trial-6" class="stimulus"></div>
+      <div id="trial-7" class="stimulus"></div>
+      <div id="trial-8" class="stimulus"></div>
+      <div id="trial-9" class="stimulus"></div>
+      <div id="trial-10" class="stimulus"></div>
+      <div id="trial-11" class="stimulus"></div>
+      <div id="trial-12" class="stimulus"></div>
+      <div id="trial-13" class="stimulus"></div>
+      <div id="trial-14" class="stimulus"></div>
+      <div id="trial-15" class="stimulus"></div>
+      <div id="trial-16" class="stimulus"></div>
+      <div id="trial-17" class="stimulus"></div>
+      <div id="trial-18" class="stimulus"></div>
+      <div id="trial-19" class="stimulus"></div>
+      <div id="trial-20" class="stimulus"></div>
+    </script>
+    <script type="text/template" id="fixation-template">
+      <span id="fixation-cross">+</span>
+    </script>
+    
+    <script type="text/javascript" charset="utf-8" src="js/libs/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/libs/underscore.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/libs/backbone.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/libs/backbone.localStorage.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/visualsearch.js"></script>
+  </body>
+</html>

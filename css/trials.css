@@ -1,0 +1,221 @@
+.stimulus {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
+
+.stimulus.color {
+  background-color: blue;
+}
+
+.stimulus.color.target {
+  background-color: green;
+}
+
+.stimulus.line {
+  border-bottom: thin solid black;
+}
+
+.stimulus.line.target {
+  border-right: thin solid black;
+}
+
+.trial-1.near {
+  left: 0px;
+  top: 0px;
+}
+
+.trial-1.far {
+  left: 0px;
+  top: 20px;
+}
+
+.trial-2.near {
+  left: 20px;
+  top: 0px;
+}
+
+.trial-2.far {
+  left: 20px;
+  top: 20px;
+}
+
+.trial-3.near {
+  left: 40px;
+  top: 0px;
+}
+
+.trial-3.far {
+  left: 40px;
+  top: 20px;
+}
+
+.trial-4.near {
+  left: 60px;
+  top: 0px;
+}
+
+.trial-4.far {
+  left: 60px;
+  top: 20px;
+}
+
+.trial-5.near {
+  left: 80px;
+  top: 0px;
+}
+
+.trial-5.far {
+  left: 80px;
+  top: 20px;
+}
+
+.trial-6.near {
+  left: 100px;
+  top: 0px;
+}
+
+.trial-6.far {
+  left: 100px;
+  top: 20px;
+}
+
+.trial-7.near {
+  left: 120px;
+  top: 0px;
+}
+
+.trial-7.far {
+  left: 120px;
+  top: 20px;
+}
+
+.trial-8.near {
+  left: 140px;
+  top: 0px;
+}
+
+.trial-8.far {
+  left: 140px;
+  top: 20px;
+}
+
+.trial-9.near {
+  left: 160px;
+  top: 0px;
+}
+
+.trial-9.far {
+  left: 160px;
+  top: 20px;
+}
+
+.trial-10.near {
+  left: 180px;
+  top: 0px;
+}
+
+.trial-10.far {
+  left: 180px;
+  top: 20px;
+}
+
+.trial-11.near {
+  left: 200px;
+  top: 0px;
+}
+
+.trial-11.far {
+  left: 200px;
+  top: 20px;
+}
+
+.trial-12.near {
+  left: 220px;
+  top: 0px;
+}
+
+.trial-12.far {
+  left: 220px;
+  top: 20px;
+}
+
+.trial-13.near {
+  left: 240px;
+  top: 0px;
+}
+
+.trial-13.far {
+  left: 240px;
+  top: 20px;
+}
+
+.trial-14.near {
+  left: 260px;
+  top: 0px;
+}
+
+.trial-14.far {
+  left: 260px;
+  top: 20px;
+}
+
+.trial-15.near {
+  left: 280px;
+  top: 0px;
+}
+
+.trial-15.far {
+  left: 280px;
+  top: 20px;
+}
+
+.trial-16.near {
+  left: 300px;
+  top: 0px;
+}
+
+.trial-16.far {
+  left: 300px;
+  top: 20px;
+}
+
+.trial-17.near {
+  left: 320px;
+  top: 0px;
+}
+
+.trial-17.far {
+  left: 320px;
+  top: 20px;
+}
+
+.trial-18.near {
+  left: 340px;
+  top: 0px;
+}
+
+.trial-18.far {
+  left: 340px;
+  top: 20px;
+}
+
+.trial-19.near {
+  left: 360px;
+  top: 0px;
+}
+
+.trial-19.far {
+  left: 360px;
+  top: 20px;
+}
+
+.trial-20.near {
+  left: 380px;
+  top: 0px;
+}
+
+.trial-20.far {
+  left: 380px;
+  top: 20px;
+}
