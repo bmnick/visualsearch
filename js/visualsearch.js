@@ -116,7 +116,7 @@ var TrialView = Backbone.View.extend({
   
   render: function(){
     var stimulus_type = this.trial.get("isColorDistractor") ? "color" : "line";
-    var target = this.trial.get("present") ? Math.floor((Math.random() * 20) + 1) : -1;
+    var target = this.trial.get("present") ? Math.floor((Math.random() * 16) + 1) : -1;
     var is_close = this.trial.get("isInFovia") ? "near" : "far";
     var self = this;
     
