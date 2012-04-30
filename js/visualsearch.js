@@ -95,13 +95,12 @@ var TrialsView = Backbone.View.extend({
   },
   
   next_trial: function(){
-    if (this.trialView) this.trialView.remove();
-    
     this.trialIndex += 1;
     this.curTrial = trials.at(this.trialIndex);
     
     this.trialView = new TrialView();
     this.trialView.trial = this.curTrial;
+    this.trialView.subject = this.subject;
     this.trialView.render();
   },
 });
@@ -137,7 +136,7 @@ var TrialView = Backbone.View.extend({
           .addClass(stimulus_type)
           .addClass(is_close);
         
-        $("trial-" + target)
+        $("#trial-" + target)
           .addClass("target");
         
         if (next) next();
@@ -148,11 +147,11 @@ var TrialView = Backbone.View.extend({
     var result = new TrialResult({
       trial: this.trial,
       subject: this.subject,
-      responseTime: (event.timestamp - this.startTime),
+      responseTime: (event.timeStamp - this.startTime),
       correct: this.trial.get("present")
     });
     
-    if (!result.correct) {
+    if (!result.get("correct")) {
       // handle error correction
     }
     
@@ -165,11 +164,11 @@ var TrialView = Backbone.View.extend({
     var result = new TrialResult({
       trial: this.trial,
       subject: this.subject,
-      responseTime: (event.timestamp - this.startTime),
+      responseTime: (event.timeStamp - this.startTime),
       correct: !(this.trial.get("present"))
     });
     
-    if (!result.correct) {
+    if (!result.get("correct")) {
       // handle error correction
     }
     
@@ -196,10 +195,11 @@ var NewSubjectView = Backbone.View.extend({
   
   create_on_enter: function(e){
     if (e.keyCode === 13) {
-      var subject = subjects.add(new Subject({
+      var subject = new Subject({
         dce: $("#new-subject").val(),
-        rightHanded: $("handedness-check").is(":checked"),
-      }));
+        rightHanded: $("#handedness-check").is(":checked"),
+      });
+      subjects.add(subject);
       
       $(this.el).hide();
       
@@ -215,11 +215,17 @@ var NewSubjectView = Backbone.View.extend({
 
 var newView = new NewSubjectView();
 
+shuffle = function(o){ //v1.0
+  for(var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+  return o;
+};
+
 $(function() {
-  var i;
+  var i, ar = [];
   
+  // Generate all of our trials
   for (i = 0; i < 30; i++) {
-    trials.add(new Trial({
+    ar.push(new Trial({
       present: false,
       isColorDistractor: false,
       isInFovia: false
@@ -227,7 +233,7 @@ $(function() {
   }
   
   for (i = 0; i < 30; i++) {
-    trials.add(new Trial({
+    ar.push(new Trial({
       present: false,
       isColorDistractor: false,
       isInFovia: true
@@ -235,7 +241,7 @@ $(function() {
   }
   
   for (i = 0; i < 30; i++) {
-    trials.add(new Trial({
+    ar.push(new Trial({
       present: false,
       isColorDistractor: true,
       isInFovia: false
@@ -243,7 +249,7 @@ $(function() {
   }
   
   for (i = 0; i < 30; i++) {
-    trials.add(new Trial({
+    ar.push(new Trial({
       present: false,
       isColorDistractor: true,
       isInFovia: true
@@ -251,7 +257,7 @@ $(function() {
   }
   
   for (i = 0; i < 30; i++) {
-    trials.add(new Trial({
+    ar.push(new Trial({
       present: true,
       isColorDistractor: false,
       isInFovia: false
@@ -259,7 +265,7 @@ $(function() {
   }
   
   for (i = 0; i < 30; i++) {
-    trials.add(new Trial({
+    ar.push(new Trial({
       present: true,
       isColorDistractor: false,
       isInFovia: true
@@ -267,7 +273,7 @@ $(function() {
   }
   
   for (i = 0; i < 30; i++) {
-    trials.add(new Trial({
+    ar.push(new Trial({
       present: true,
       isColorDistractor: true,
       isInFovia: false
@@ -275,12 +281,16 @@ $(function() {
   }
   
   for (i = 0; i < 30; i++) {
-    trials.add(new Trial({
+    ar.push(new Trial({
       present: true,
       isColorDistractor: true,
       isInFovia: true
     }));
   }
   
-  // populate trials with 30x each situation
+  // Shuffle the possible trials, and dump them into our trial collection
+  _.each(shuffle(ar), function(obj) {
+    trials.add(obj);
+  })
+  
 });
