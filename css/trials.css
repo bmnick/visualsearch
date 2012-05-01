@@ -36,7 +36,7 @@
 
 #trial-1.near {
   left: 400px;
-  top: 200px;
+  top: 300px;
 }
 
 #trial-1.far {
@@ -45,8 +45,8 @@
 }
 
 #trial-2.near {
-  left: 476px;
-  top: 216px;
+  left: 438px;
+  top: 308px;
 }
 
 #trial-2.far {
@@ -55,8 +55,8 @@
 }
 
 #trial-3.near {
-  left: 541px;
-  top: 259px;
+  left: 470px;
+  top: 330px;
 }
 
 #trial-3.far {
@@ -66,8 +66,8 @@
 }
 
 #trial-4.near {
-  left: 584px;
-  top: 324px;
+  left: 492px;
+  top: 362px;
 }
 
 #trial-4.far {
@@ -76,7 +76,7 @@
 }
 
 #trial-5.near {
-  left: 600px;
+  left: 500px;
   top: 400px;
 }
 
@@ -86,8 +86,8 @@
 }
 
 #trial-6.near {
-  left: 584px;
-  top: 476px;
+  left: 492px;
+  top: 438px;
 }
 
 #trial-6.far {
@@ -96,8 +96,8 @@
 }
 
 #trial-7.near {
-  left: 541px;
-  top: 541px;
+  left: 470px;
+  top: 470px;
 }
 
 #trial-7.far {
@@ -106,8 +106,8 @@
 }
 
 #trial-8.near {
-  left: 476px;
-  top: 584px;
+  left: 438px;
+  top: 492px;
 }
 
 #trial-8.far {
@@ -117,7 +117,7 @@
 
 #trial-9.near {
   left: 400px;
-  top: 600px;
+  top: 500px;
 }
 
 #trial-9.far {
@@ -126,8 +126,8 @@
 }
 
 #trial-10.near {
-  left: 324px;
-  top: 584px;
+  left: 362px;
+  top: 492px;
 }
 
 #trial-10.far {
@@ -136,8 +136,8 @@
 }
 
 #trial-11.near {
-  left: 259px;
-  top: 541px;
+  left: 330px;
+  top: 470px;
 }
 
 #trial-11.far {
@@ -146,8 +146,8 @@
 }
 
 #trial-12.near {
-  left: 216px;
-  top: 476px;
+  left: 308px;
+  top: 438px;
 }
 
 #trial-12.far {
@@ -156,7 +156,7 @@
 }
 
 #trial-13.near {
-  left: 200px;
+  left: 300px;
   top: 400px;
 }
 
@@ -166,8 +166,8 @@
 }
 
 #trial-14.near {
-  left: 216px;
-  top: 324px;
+  left: 308px;
+  top: 362px;
 }
 
 #trial-14.far {
@@ -176,8 +176,8 @@
 }
 
 #trial-15.near {
-  left: 259px;
-  top: 259px;
+  left: 330px;
+  top: 330px;
 }
 
 #trial-15.far {
@@ -186,8 +186,8 @@
 }
 
 #trial-16.near {
-  left: 324px;
-  top: 216px;
+  left: 362px;
+  top: 308px;
 }
 
 #trial-16.far {
@@ -195,42 +195,15 @@
   top: 31px;
 }
 
-#trial-17.near {
-  left: 320px;
-  top: 0px;
+#fixation-cross {
+  position: absolute;
+  left: 400px;
+  top: 400px;
 }
 
-#trial-17.far {
-  left: 320px;
-  top: 20px;
-}
-
-#trial-18.near {
-  left: 340px;
-  top: 0px;
-}
-
-#trial-18.far {
-  left: 340px;
-  top: 20px;
-}
-
-#trial-19.near {
-  left: 360px;
-  top: 0px;
-}
-
-#trial-19.far {
-  left: 360px;
-  top: 20px;
-}
-
-#trial-20.near {
-  left: 380px;
-  top: 0px;
-}
-
-#trial-20.far {
-  left: 380px;
-  top: 20px;
+#trial {
+  position: relative;
+  margin: auto;
+  min-width: 820px;
+  max-width: 820px;
 }

@@ -127,7 +127,7 @@ var TrialView = Backbone.View.extend({
         
         if (next) next();
       })
-      .delay(500)
+      .delay(1500)
       .queue(function(next) {
         $(self.el)
           .html(self.template())
