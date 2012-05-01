@@ -55,6 +55,17 @@ var subjects = new SubjectCollection();
 var TrialResultCollection = Backbone.Collection.extend({
   localStorage: new Backbone.LocalStorage("TrialResults"),
   model: TrialResult,
+  
+  toCSV: function(){
+    return this.map(function(elem) {
+      return (elem.get("subject").get("dce") + ", " + 
+              elem.get("trial").get("present") + ", " + 
+              elem.get("trial").get("isColorDistractor") + ", " + 
+              elem.get("trial").get("isInFovia") + ", " + 
+              elem.get("responseTime") + ", " + 
+              elem.get("correct"));
+    }).join("<br />");
+  },
 });
 
 var trialResults = new TrialResultCollection();
@@ -72,7 +83,6 @@ var TrialsView = Backbone.View.extend({
     $(this.el).show();
     
     this.trialIndex = -1;
-    this.next_trial();
   },
   
   render: function(){
@@ -96,6 +106,12 @@ var TrialsView = Backbone.View.extend({
   
   next_trial: function(){
     this.trialIndex += 1;
+    if (this.trialIndex  === trials.length) {
+        var resultsView = new ResultsView();
+        resultsView.render()
+        return;
+    }
+    
     this.curTrial = trials.at(this.trialIndex);
     
     this.trialView = new TrialView();
@@ -104,6 +120,32 @@ var TrialsView = Backbone.View.extend({
     this.trialView.render();
   },
 });
+
+var ResultsView = Backbone.View.extend({
+  el: $("#results"),
+  template: _.template($("#results-template").html()),
+  
+  events: {
+    'click #next-subject': 'next_subject'
+  },
+  
+  initialize: function() {
+    _.bindAll(this, 'render', 'next_subject');
+    $(this.el).show();
+    $("#view-output").hide();
+  },
+  
+  render: function() {
+    $(this.el).html(this.template({
+      data: trialResults.toCSV()
+    }))
+  },
+  
+  next_subject: function(){
+    newView.start_new_subject();
+    $("#results").hide();
+  },
+})
 
 var TrialView = Backbone.View.extend({
   el: $("#trial"),
@@ -147,7 +189,7 @@ var TrialView = Backbone.View.extend({
     var result = new TrialResult({
       trial: this.trial,
       subject: this.subject,
-      responseTime: (event.timeStamp - this.startTime),
+      responseTime: (event.timeStamp - this.startTime - 1500),
       correct: this.trial.get("present")
     });
     
@@ -164,7 +206,7 @@ var TrialView = Backbone.View.extend({
     var result = new TrialResult({
       trial: this.trial,
       subject: this.subject,
-      responseTime: (event.timeStamp - this.startTime),
+      responseTime: (event.timeStamp - this.startTime - 1500),
       correct: !(this.trial.get("present"))
     });
     
@@ -205,6 +247,9 @@ var NewSubjectView = Backbone.View.extend({
       
       window.trialsview = new TrialsView();
       window.trialsview.subject = subject;
+      window.trialsview.next_trial();
+      
+      $("#new-subject").val('');
     }
   },
   
@@ -222,7 +267,7 @@ shuffle = function(o){ //v1.0
 
 $(function() {
   var i, ar = [];
-  
+
   // Generate all of our trials
   for (i = 0; i < 30; i++) {
     ar.push(new Trial({

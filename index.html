@@ -19,6 +19,7 @@
     <div id="view-output" style="display: none">
       <div id="trial"></div>
     </div>
+    <div id="results" style="display: none"></div>
     
     <script type="text/template" id="trial-template">
       <div id="trial-1" class="stimulus"></div>
@@ -37,13 +38,15 @@
       <div id="trial-14" class="stimulus"></div>
       <div id="trial-15" class="stimulus"></div>
       <div id="trial-16" class="stimulus"></div>
-<!--      <div id="trial-17" class="stimulus"></div>
-      <div id="trial-18" class="stimulus"></div>
-      <div id="trial-19" class="stimulus"></div>
-      <div id="trial-20" class="stimulus"></div>-->
     </script>
     <script type="text/template" id="fixation-template">
       <span id="fixation-cross">+</span>
+    </script>
+    <script type="text/template" id="results-template">
+      <button id="next-subject">Next subject</button>
+      <div id="results">
+        <%= data %>
+      </div>
     </script>
     
     <script type="text/javascript" charset="utf-8" src="js/libs/jquery.js"></script>
